@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מייתר — מעורבות חברתית</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:   #1a73e8;
+  --red:    #ea4335;
+  --yellow: #fbbc04;
+  --green:  #34a853;
+  --blue-light:  #e8f0fe;
+  --red-light:   #fce8e6;
+  --yellow-light:#fef7e0;
+  --green-light: #e6f4ea;
+  --gray-50:  #f8f9fa;
+  --gray-100: #f1f3f4;
+  --gray-200: #e8eaed;
+  --gray-500: #9aa0a6;
+  --gray-700: #5f6368;
+  --gray-900: #202124;
+  --shadow-1: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+  --shadow-2: 0 1px 3px rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+  --shadow-3: 0 2px 6px rgba(60,64,67,.3), 0 6px 20px 4px rgba(60,64,67,.15);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font: 'Noto Sans Hebrew', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  min-height: 100vh;
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-logo-dots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  width: 22px;
+  height: 22px;
+}
+
+.nav-logo-dots span {
+  border-radius: 50%;
+  display: block;
+}
+.nav-logo-dots span:nth-child(1) { background: var(--blue); }
+.nav-logo-dots span:nth-child(2) { background: var(--red); }
+.nav-logo-dots span:nth-child(3) { background: var(--yellow); }
+.nav-logo-dots span:nth-child(4) { background: var(--green); }
+
+.nav-logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  letter-spacing: -0.3px;
+}
+
+.nav-logo-text span { color: var(--blue); }
+
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  color: var(--gray-700);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.nav-tab:hover { background: var(--gray-100); }
+
+.nav-tab.active {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.nav-tab .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: white;
+  box-shadow: 0 1px 3px rgba(26,115,232,.4);
+}
+.btn-primary:hover { background: #1557b0; box-shadow: var(--shadow-1); }
+
+.btn-outline {
+  background: white;
+  color: var(--blue);
+  border: 1px solid var(--gray-200);
+}
+.btn-outline:hover { background: var(--blue-light); border-color: var(--blue); }
+
+/* ===== PAGES ===== */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ===== HERO ===== */
+.hero {
+  background: white;
+  padding: 64px 24px 48px;
+  text-align: center;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blue-light);
+  color: var(--blue);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.hero h1 .blue  { color: var(--blue); }
+.hero h1 .red   { color: var(--red); }
+.hero h1 .yellow{ color: var(--yellow); }
+.hero h1 .green { color: var(--green); }
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 48px auto 0;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 0.2s;
+}
+.stat-card:hover { box-shadow: var(--shadow-2); }
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label { font-size: 0.8rem; color: var(--gray-700); font-weight: 400; }
+
+/* QUICK ACCESS */
+.quick-access {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.quick-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+  box-shadow: var(--shadow-1);
+  border-top: 3px solid transparent;
+}
+.quick-card:hover { box-shadow: var(--shadow-2); transform: translateY(-2px); }
+.quick-card.c-blue  { border-top-color: var(--blue); }
+.quick-card.c-red   { border-top-color: var(--red); }
+.quick-card.c-green { border-top-color: var(--green); }
+.quick-card.c-yellow{ border-top-color: var(--yellow); }
+.quick-card.c-blue2 { border-top-color: #9c27b0; }
+
+.quick-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  display: block;
+}
+.quick-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+.quick-sub {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+/* ===== CONTENT LAYOUT ===== */
+.content-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.content-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.content-header p {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  margin-top: 2px;
+}
+
+/* FILTER CHIPS */
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.chip {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--gray-200);
+  background: white;
+  color: var(--gray-700);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+.chip.active { background: var(--blue); color: white; border-color: var(--blue); }
+
+/* ===== CARDS GRID ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 0.2s, transform 0.2s;
+  animation: fadeUp 0.3s ease backwards;
+}
+.card:hover { box-shadow: var(--shadow-2); transform: translateY(-2px); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.chip-blue   { background: var(--blue-light);   color: var(--blue); }
+.chip-red    { background: var(--red-light);    color: var(--red); }
+.chip-green  { background: var(--green-light);  color: var(--green); }
+.chip-yellow { background: var(--yellow-light); color: #b06000; }
+.chip-purple { background: #f3e8ff; color: #7c3aed; }
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.card-body {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-100);
+  font-size: 0.78rem;
+  color: var(--gray-500);
+}
+
+.card-avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Article card */
+.article-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 0.2s, transform 0.2s;
+  animation: fadeUp 0.3s ease backwards;
+  cursor: pointer;
+}
+.article-card:hover { box-shadow: var(--shadow-2); transform: translateY(-2px); }
+
+.article-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--blue-light), var(--green-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.article-body { padding: 16px; }
+
+.article-meta {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-bottom: 6px;
+}
+
+.article-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+
+.article-excerpt {
+  font-size: 0.83rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray-500);
+}
+.empty .icon { font-size: 3rem; margin-bottom: 12px; }
+.empty p { font-size: 1rem; font-weight: 500; margin-bottom: 6px; color: var(--gray-700); }
+.empty small { font-size: 0.85rem; }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(32,33,36,.5);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: white;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 540px;
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+  animation: modalIn 0.2s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  padding: 20px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.modal-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.modal-close:hover { background: var(--gray-100); }
+
+.modal-body { padding: 20px 24px 24px; }
+
+.form-group { margin-bottom: 16px; }
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--gray-900);
+  background: white;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(26,115,232,.15);
+}
+
+.form-group textarea { min-height: 100px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-text {
+  background: transparent;
+  color: var(--blue);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-text:hover { background: var(--blue-light); }
+
+.success-msg {
+  text-align: center;
+  padding: 32px 20px;
+  display: none;
+}
+.success-msg.show { display: block; }
+.success-msg .icon { font-size: 3rem; margin-bottom: 12px; }
+.success-msg h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
+.success-msg p { font-size: 0.875rem; color: var(--gray-700); }
+
+/* ===== ADMIN ===== */
+.admin-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--gray-50);
+  z-index: 300;
+  flex-direction: column;
+}
+.admin-overlay.open { display: flex; }
+
+.admin-nav {
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-1);
+}
+
+.admin-nav h2 { font-size: 1.1rem; font-weight: 600; color: var(--gray-900); }
+
+.admin-body { flex: 1; overflow-y: auto; padding: 32px 24px; max-width: 900px; margin: 0 auto; width: 100%; }
+
+.admin-login-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 40px;
+  max-width: 400px;
+  margin: 60px auto 0;
+  box-shadow: var(--shadow-2);
+  text-align: center;
+}
+
+.admin-login-card .logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.admin-login-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.admin-login-card p {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  margin-bottom: 24px;
+}
+
+.admin-login-card input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.admin-login-card input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(26,115,232,.15);
+}
+
+.admin-login-card .err { color: var(--red); font-size: 0.8rem; margin-top: 6px; display: none; }
+.admin-login-card .err.show { display: block; }
+
+.admin-section { margin-bottom: 32px; }
+
+.admin-section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.admin-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-1);
+}
+
+.admin-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.admin-card-title { font-weight: 600; font-size: 0.95rem; }
+.admin-card-meta { font-size: 0.78rem; color: var(--gray-500); margin-top: 2px; }
+.admin-card-body { font-size: 0.875rem; color: var(--gray-700); line-height: 1.5; }
+
+.admin-actions { display: flex; gap: 8px; margin-top: 12px; }
+
+.btn-approve {
+  padding: 6px 16px;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-approve:hover { background: #1e8e3e; }
+
+.btn-reject {
+  padding: 6px 16px;
+  background: white;
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 16px;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-reject:hover { background: var(--red-light); }
+
+.counters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.counter-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  box-shadow: var(--shadow-1);
+}
+.counter-num { font-size: 1.8rem; font-weight: 700; }
+.counter-label { font-size: 0.75rem; color: var(--gray-500); margin-top: 2px; }
+
+.admin-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: 0;
+}
+
+.admin-tab {
+  padding: 10px 18px;
+  border: none;
+  background: transparent;
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.15s;
+}
+.admin-tab:hover { color: var(--blue); }
+.admin-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* Loading */
+.loading-bar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--green), var(--yellow), var(--red));
+  background-size: 300%;
+  animation: loadingAnim 1.5s infinite;
+  z-index: 999;
+}
+@keyframes loadingAnim { 0%{background-position:0%} 100%{background-position:300%} }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--gray-900);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-3);
+  z-index: 500;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 600px) {
+  .nav-tabs { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="loading-bar" id="loadingBar"></div>
+<div class="toast" id="toast"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="#" onclick="showPage('home')">
+    <div class="nav-logo-dots">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <span class="nav-logo-text">מייתר <span>גני תקווה</span></span>
+  </a>
+
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-page="home" onclick="showPage('home')">
+      <span class="dot" style="background:var(--blue)"></span> בית
+    </button>
+    <button class="nav-tab" data-page="volunteer" onclick="showPage('volunteer')">
+      <span class="dot" style="background:var(--red)"></span> התנדבויות
+    </button>
+    <button class="nav-tab" data-page="docs" onclick="showPage('docs')">
+      <span class="dot" style="background:var(--green)"></span> תיעוד
+    </button>
+    <button class="nav-tab" data-page="articles" onclick="showPage('articles')">
+      <span class="dot" style="background:var(--yellow)"></span> כתבות
+    </button>
+    <button class="nav-tab" data-page="podcast" onclick="showPage('podcast')">
+      <span class="dot" style="background:#9c27b0"></span> פודקאסט
+    </button>
+    <button class="nav-tab" data-page="forms" onclick="showPage('forms')">
+      <span class="dot" style="background:var(--blue)"></span> טפסים
+    </button>
+  </div>
+
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openAdmin()">🔐 ניהול</button>
+  </div>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-badge">🏫 תיכון מייתר · גני תקווה</div>
+    <h1>
+      <span class="blue">מ</span><span class="red">ע</span><span class="yellow">ו</span><span class="green">ר</span>בות
+      חברתית
+    </h1>
+    <p>פלטפורמה לתלמידים שרוצים לצבור שעות התנדבות ולאנשים שמחפשים מתנדבים מוכשרים</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="openSubmitModal('volunteer')">➕ הוסף בקשה / הצעה</button>
+      <button class="btn btn-outline" onclick="showPage('volunteer')">🔍 צפה בהתנדבויות</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num" style="color:var(--blue)" id="statVolunteer">0</div>
+        <div class="stat-label">בקשות והצעות</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:var(--green)" id="statDocs">0</div>
+        <div class="stat-label">פעילויות מתועדות</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:var(--yellow)" id="statArticles">0</div>
+        <div class="stat-label">כתבות וראיונות</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#9c27b0" id="statPodcast">0</div>
+        <div class="stat-label">רעיונות לפודקאסט</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quick-access">
+    <div class="section-title">⚡ גישה מהירה</div>
+    <div class="quick-grid">
+      <div class="quick-card c-red" onclick="openSubmitModal('volunteer')">
+        <span class="quick-icon">🙋</span>
+        <div class="quick-label">בקשת התנדבות</div>
+        <div class="quick-sub">אני צריך עזרה</div>
+      </div>
+      <div class="quick-card c-blue" onclick="openSubmitModal('volunteer-offer')">
+        <span class="quick-icon">💪</span>
+        <div class="quick-label">הצעת התנדבות</div>
+        <div class="quick-sub">אני רוצה לעזור</div>
+      </div>
+      <div class="quick-card c-green" onclick="openSubmitModal('doc')">
+        <span class="quick-icon">📸</span>
+        <div class="quick-label">תיעוד פעילות</div>
+        <div class="quick-sub">שתף מה עשית</div>
+      </div>
+      <div class="quick-card c-yellow" onclick="openSubmitModal('podcast')">
+        <span class="quick-icon">🎙️</span>
+        <div class="quick-label">רעיון לפודקאסט</div>
+        <div class="quick-sub">הצע נושא</div>
+      </div>
+      <div class="quick-card c-blue2" onclick="showPage('forms')">
+        <span class="quick-icon">📝</span>
+        <div class="quick-label">מלא שאלון</div>
+        <div class="quick-sub">מעורבות חברתית</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VOLUNTEER PAGE ===== -->
+<div class="page" id="page-volunteer">
+  <div class="content-layout">
+    <div class="content-header">
+      <div>
+        <h2>🤝 בקשות והצעות התנדבות</h2>
+        <p>חיבור בין תלמידים שרוצים לעזור לאנשים שצריכים עזרה</p>
+      </div>
+      <button class="btn btn-primary" onclick="openSubmitModal('volunteer')">➕ הוסף</button>
+    </div>
+    <div class="chips">
+      <button class="chip active" onclick="filterCards('volunteer','all',this)">הכל</button>
+      <button class="chip" onclick="filterCards('volunteer','request',this)">🙋 בקשות עזרה</button>
+      <button class="chip" onclick="filterCards('volunteer','offer',this)">💪 הצעות התנדבות</button>
+    </div>
+    <div class="cards-grid" id="volunteerGrid"></div>
+  </div>
+</div>
+
+<!-- ===== DOCS PAGE ===== -->
+<div class="page" id="page-docs">
+  <div class="content-layout">
+    <div class="content-header">
+      <div>
+        <h2>📸 תיעוד מעורבות חברתית</h2>
+        <p>פעילויות ומיזמים שכבר קרו</p>
+      </div>
+      <button class="btn btn-primary" onclick="openSubmitModal('doc')">➕ הוסף תיעוד</button>
+    </div>
+    <div class="cards-grid" id="docsGrid"></div>
+  </div>
+</div>
+
+<!-- ===== ARTICLES PAGE ===== -->
+<div class="page" id="page-articles">
+  <div class="content-layout">
+    <div class="content-header">
+      <div>
+        <h2>📰 ראיונות וכתבות</h2>
+        <p>כתבות מהעיתון הבית ספרי וראיונות עם תלמידים</p>
+      </div>
+    </div>
+    <div class="cards-grid" id="articlesGrid"></div>
+  </div>
+</div>
+
+<!-- ===== PODCAST PAGE ===== -->
+<div class="page" id="page-podcast">
+  <div class="content-layout">
+    <div class="content-header">
+      <div>
+        <h2>🎙️ רעיונות לפודקאסט</h2>
+        <p>הצע נושאים שתרצה לשמוע בפודקאסט של בית הספר</p>
+      </div>
+      <button class="btn btn-primary" onclick="openSubmitModal('podcast')">➕ הצע נושא</button>
+    </div>
+    <div class="cards-grid" id="podcastGrid"></div>
+  </div>
+</div>
+
+<!-- ===== FORMS PAGE ===== -->
+<div class="page" id="page-forms">
+  <div class="content-layout">
+    <div class="content-header">
+      <div>
+        <h2>📝 שאלוני מעורבות חברתית</h2>
+        <p>מלא שאלון כדי לעדכן את בית הספר על מעורבותך</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      <div class="card" style="animation-delay:0s">
+        <div class="card-chip chip-blue">📋 שאלון</div>
+        <div class="card-title">דיווח שעות התנדבות</div>
+        <div class="card-body">דווח על שעות ההתנדבות שצברת השנה, כולל תיאור הפעילות ואישור מהמארגן.</div>
+        <div class="card-footer">
+          <span>ממלאים: תלמידים</span>
+          <button class="btn btn-primary" onclick="openSubmitModal('form-hours')">מלא עכשיו</button>
+        </div>
+      </div>
+      <div class="card" style="animation-delay:0.1s">
+        <div class="card-chip chip-green">📋 שאלון</div>
+        <div class="card-title">הצעה למיזם חברתי</div>
+        <div class="card-body">יש לך רעיון למיזם שישפיע על הקהילה? מלא את הטופס ואנחנו ניצור איתך קשר.</div>
+        <div class="card-footer">
+          <span>ממלאים: כולם</span>
+          <button class="btn btn-primary" onclick="openSubmitModal('form-initiative')">מלא עכשיו</button>
+        </div>
+      </div>
+      <div class="card" style="animation-delay:0.2s">
+        <div class="card-chip chip-yellow">📋 שאלון</div>
+        <div class="card-title">משוב על פעילות התנדבות</div>
+        <div class="card-body">השתתפת בפעילות התנדבות? שתף את החוויה שלך כדי שנוכל לשפר ולפרסם.</div>
+        <div class="card-footer">
+          <span>ממלאים: תלמידים</span>
+          <button class="btn btn-primary" onclick="openSubmitModal('form-feedback')">מלא עכשיו</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SUBMIT MODAL ===== -->
+<div class="modal-overlay" id="submitModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">הוספה חדשה</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="formContent"></div>
+      <div class="success-msg" id="successMsg">
+        <div class="icon">✅</div>
+        <h4>נשלח בהצלחה!</h4>
+        <p>הבקשה שלך נשלחה ותפורסם לאחר אישור הצוות.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADMIN ===== -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-nav">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="nav-logo-dots" style="width:18px;height:18px;gap:2px">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <h2>ממשק ניהול — מייתר</h2>
+    </div>
+    <button class="btn btn-outline" onclick="closeAdmin()">✕ סגור</button>
+  </div>
+  <div class="admin-body">
+    <div id="adminLoginSection">
+      <div class="admin-login-card">
+        <div class="logo">
+          <div class="nav-logo-dots" style="width:32px;height:32px;gap:5px">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <h3>כניסת מנהל</h3>
+        <p>הכנס סיסמה כדי לנהל את התוכן</p>
+        <input type="password" id="adminPassInput" placeholder="סיסמה" onkeydown="if(event.key==='Enter')doAdminLogin()">
+        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="doAdminLogin()">כניסה</button>
+        <div class="err" id="adminErr">סיסמה שגויה. נסה שנית.</div>
+      </div>
+    </div>
+
+    <div id="adminDashSection" style="display:none">
+      <div class="counters">
+        <div class="counter-card">
+          <div class="counter-num" style="color:var(--yellow)" id="cntPending">0</div>
+          <div class="counter-label">ממתינים לאישור</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num" style="color:var(--green)" id="cntApproved">0</div>
+          <div class="counter-label">מאושרים</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num" style="color:var(--blue)" id="cntTotal">0</div>
+          <div class="counter-label">סה"כ פריטים</div>
+        </div>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchAdminTab('pending',this)">⏳ ממתינים</button>
+        <button class="admin-tab" onclick="switchAdminTab('approved',this)">✅ מאושרים</button>
+      </div>
+
+      <div id="adminPendingList"></div>
+      <div id="adminApprovedList" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== CONFIG =====
+const ADMIN_PASSWORD = 'admin123';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycby4EzLsA6bhlv7iBJQkM408xH7P8bupJhI1IMbub8DPZa8eMugxlpCdog-9cjP5Ub4/exec';
+
+// ===== STATE =====
+let allItems = [];
+let adminLoggedIn = false;
+let currentFilters = { volunteer: 'all' };
+
+// ===== CATEGORY CONFIG =====
+const CATEGORIES = {
+  volunteer: { label: 'התנדבויות', chipClass: 'chip-red' },
+  doc:       { label: 'תיעוד',     chipClass: 'chip-green' },
+  article:   { label: 'כתבה',      chipClass: 'chip-yellow' },
+  podcast:   { label: 'פודקאסט',   chipClass: 'chip-purple' },
+};
+
+const TYPE_LABELS = {
+  request:          { label: '🙋 בקשת עזרה',       chip: 'chip-red' },
+  offer:            { label: '💪 הצעת התנדבות',    chip: 'chip-blue' },
+  'volunteer-offer':{ label: '💪 הצעת התנדבות',    chip: 'chip-blue' },
+  doc:              { label: '📸 תיעוד',            chip: 'chip-green' },
+  article:          { label: '📰 כתבה',             chip: 'chip-yellow' },
+  podcast:          { label: '🎙️ פודקאסט',         chip: 'chip-purple' },
+  'form-hours':     { label: '📋 דיווח שעות',       chip: 'chip-blue' },
+  'form-initiative':{ label: '📋 מיזם',             chip: 'chip-green' },
+  'form-feedback':  { label: '📋 משוב',             chip: 'chip-yellow' },
+};
+
+// ===== SHEETS API =====
+function loadItems() {
+  showLoader(true);
+  return new Promise((resolve) => {
+    const cb = 'cb_' + Date.now();
+    const s = document.createElement('script');
+    window[cb] = (data) => {
+      allItems = data.map(n => ({ ...n, approved: n.approved === true || n.approved === 'true' }));
+      showLoader(false);
+      renderAll();
+      resolve();
+      document.body.removeChild(s);
+      delete window[cb];
+    };
+    s.onerror = () => {
+      showLoader(false);
+      allItems = [];
+      renderAll();
+      resolve();
+      document.body.removeChild(s);
+      delete window[cb];
+    };
+    s.src = SHEET_URL + '?callback=' + cb;
+    document.body.appendChild(s);
+  });
+}
+
+async function apiPost(payload) {
+  await fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+  await new Promise(r => setTimeout(r, 1500));
+  await loadItems();
+}
+
+function showLoader(on) {
+  document.getElementById('loadingBar').style.display = on ? 'block' : 'none';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ===== RENDER =====
+function renderAll() {
+  renderGrid('volunteerGrid', allItems.filter(i => i.approved && (i.type === 'request' || i.type === 'offer' || i.type === 'volunteer-offer')), currentFilters.volunteer);
+  renderGrid('docsGrid',      allItems.filter(i => i.approved && i.type === 'doc'));
+  renderGrid('articlesGrid',  allItems.filter(i => i.approved && i.type === 'article'));
+  renderGrid('podcastGrid',   allItems.filter(i => i.approved && i.type === 'podcast'));
+  updateStats();
+  if (adminLoggedIn) renderAdminLists();
+}
+
+function renderGrid(gridId, items, filter) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+
+  let filtered = items;
+  if (filter && filter !== 'all') filtered = items.filter(i => i.type === filter);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="empty"><div class="icon">📭</div><p>אין פריטים עדיין</p><small>היה הראשון להוסיף!</small></div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((item, i) => buildCard(item, i)).join('');
+}
+
+function buildCard(item, i) {
+  const tl = TYPE_LABELS[item.type] || { label: item.type, chip: 'chip-blue' };
+  const initials = (item.name || '?').charAt(0).toUpperCase();
+  const colors = ['#1a73e8','#ea4335','#34a853','#fbbc04','#9c27b0','#00acc1'];
+  const color = colors[initials.charCodeAt(0) % colors.length];
+  const delay = (i * 0.06).toFixed(2);
+
+  if (item.type === 'article') {
+    return `
+      <div class="article-card" style="animation-delay:${delay}s">
+        <div class="article-img">${item.emoji || '📰'}</div>
+        <div class="article-body">
+          <div class="article-meta">${item.date || ''} · ${item.name || ''}</div>
+          <div class="article-title">${esc(item.title)}</div>
+          <div class="article-excerpt">${esc(item.body)}</div>
+        </div>
+      </div>`;
+  }
+
+  return `
+    <div class="card" style="animation-delay:${delay}s">
+      <div class="card-chip ${tl.chip}">${tl.label}</div>
+      <div class="card-title">${esc(item.title)}</div>
+      <div class="card-body">${esc(item.body)}</div>
+      <div class="card-footer">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="card-avatar" style="background:${color}">${initials}</div>
+          <span>${esc(item.name || '')}${item.klass ? ' · ' + esc(item.klass) : ''}</span>
+        </div>
+        <span>${item.date || ''}</span>
+      </div>
+    </div>`;
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function updateStats() {
+  const approved = allItems.filter(i => i.approved);
+  document.getElementById('statVolunteer').textContent = approved.filter(i => ['request','offer','volunteer-offer'].includes(i.type)).length;
+  document.getElementById('statDocs').textContent      = approved.filter(i => i.type === 'doc').length;
+  document.getElementById('statArticles').textContent  = approved.filter(i => i.type === 'article').length;
+  document.getElementById('statPodcast').textContent   = approved.filter(i => i.type === 'podcast').length;
+}
+
+// ===== NAVIGATION =====
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelector(`[data-page="${page}"]`)?.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ===== FILTER =====
+function filterCards(section, filter, btn) {
+  currentFilters[section] = filter;
+  btn.closest('.chips').querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll();
+}
+
+// ===== MODAL FORMS =====
+const FORM_CONFIGS = {
+  volunteer: {
+    title: '🤝 הוסף בקשת / הצעת התנדבות',
+    fields: [
+      { id: 'type', label: 'סוג', type: 'select', options: [['request','🙋 בקשת עזרה — אני צריך מתנדב'],['offer','💪 הצעת התנדבות — אני רוצה להתנדב']], required: true },
+      { id: 'title', label: 'כותרת', type: 'text', placeholder: 'לדוג\': עזרה בגינה קהילתית', required: true },
+      { id: 'body', label: 'תיאור', type: 'textarea', placeholder: 'תאר את הבקשה או ההצעה שלך...', required: true },
+      { id: 'name', label: 'שם מלא', type: 'text', placeholder: 'שמך', required: true },
+      { id: 'klass', label: 'כיתה / תפקיד', type: 'text', placeholder: 'לדוג\': י׳2 / מורה' },
+    ]
+  },
+  'volunteer-offer': {
+    title: '💪 הצעת התנדבות',
+    fields: [
+      { id: 'title', label: 'כותרת', type: 'text', placeholder: 'מה אתה מציע?', required: true },
+      { id: 'body', label: 'תיאור', type: 'textarea', placeholder: 'ספר על מה שאתה יכול לתרום...', required: true },
+      { id: 'name', label: 'שם מלא', type: 'text', required: true },
+      { id: 'klass', label: 'כיתה', type: 'text' },
+    ],
+    fixedType: 'offer'
+  },
+  doc: {
+    title: '📸 תיעוד פעילות',
+    fields: [
+      { id: 'title', label: 'שם הפעילות', type: 'text', required: true },
+      { id: 'body', label: 'תיאור הפעילות', type: 'textarea', placeholder: 'מה קרה? מי השתתף? מה הושג?', required: true },
+      { id: 'name', label: 'שם מדווח', type: 'text', required: true },
+      { id: 'klass', label: 'כיתה / קבוצה', type: 'text' },
+    ],
+    fixedType: 'doc'
+  },
+  podcast: {
+    title: '🎙️ הצעת נושא לפודקאסט',
+    fields: [
+      { id: 'title', label: 'נושא מוצע', type: 'text', placeholder: 'לדוג\': מה זה אומר להיות מתנדב?', required: true },
+      { id: 'body', label: 'למה הנושא הזה מעניין?', type: 'textarea', required: true },
+      { id: 'name', label: 'שמך', type: 'text', required: true },
+      { id: 'klass', label: 'כיתה', type: 'text' },
+    ],
+    fixedType: 'podcast'
+  },
+  'form-hours': {
+    title: '📋 דיווח שעות התנדבות',
+    fields: [
+      { id: 'title', label: 'שם הארגון / פעילות', type: 'text', required: true },
+      { id: 'body', label: 'תיאור הפעילות ומספר שעות', type: 'textarea', required: true },
+      { id: 'name', label: 'שם התלמיד', type: 'text', required: true },
+      { id: 'klass', label: 'כיתה', type: 'text', required: true },
+    ],
+    fixedType: 'form-hours'
+  },
+  'form-initiative': {
+    title: '📋 הצעה למיזם חברתי',
+    fields: [
+      { id: 'title', label: 'שם המיזם', type: 'text', required: true },
+      { id: 'body', label: 'תיאור המיזם והשפעתו הצפויה', type: 'textarea', required: true },
+      { id: 'name', label: 'שמך', type: 'text', required: true },
+      { id: 'klass', label: 'כיתה', type: 'text' },
+    ],
+    fixedType: 'form-initiative'
+  },
+  'form-feedback': {
+    title: '📋 משוב על פעילות התנדבות',
+    fields: [
+      { id: 'title', label: 'שם הפעילות', type: 'text', required: true },
+      { id: 'body', label: 'תאר את החוויה שלך', type: 'textarea', required: true },
+      { id: 'name', label: 'שמך', type: 'text', required: true },
+      { id: 'klass', label: 'כיתה', type: 'text' },
+    ],
+    fixedType: 'form-feedback'
+  },
+};
+
+let currentFormType = null;
+
+function openSubmitModal(formType) {
+  currentFormType = formType;
+  const config = FORM_CONFIGS[formType];
+  if (!config) return;
+
+  document.getElementById('modalTitle').textContent = config.title;
+  document.getElementById('successMsg').classList.remove('show');
+
+  let html = '';
+  const rows = [];
+  config.fields.forEach(f => {
+    let input = '';
+    if (f.type === 'select') {
+      input = `<select id="field_${f.id}"><option value="">בחר...</option>${f.options.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>`;
+    } else if (f.type === 'textarea') {
+      input = `<textarea id="field_${f.id}" placeholder="${f.placeholder||''}">${f.default||''}</textarea>`;
+    } else {
+      input = `<input type="text" id="field_${f.id}" placeholder="${f.placeholder||''}">`;
+    }
+    rows.push(`<div class="form-group"><label>${f.label}${f.required?' <span style="color:var(--red)">*</span>':''}</label>${input}</div>`);
+  });
+  html = rows.join('');
+  html += `<div class="modal-actions"><button class="btn-text" onclick="closeModal()">ביטול</button><button class="btn btn-primary" onclick="submitForm()">📤 שלח לאישור</button></div>`;
+
+  document.getElementById('formContent').innerHTML = html;
+  document.getElementById('submitModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('submitModal').classList.remove('open');
+}
+
+function closeModalOutside(e) {
+  if (e.target.id === 'submitModal') closeModal();
+}
+
+async function submitForm() {
+  const config = FORM_CONFIGS[currentFormType];
+  if (!config) return;
+
+  const data = {};
+  let valid = true;
+
+  config.fields.forEach(f => {
+    const el = document.getElementById('field_' + f.id);
+    if (el) {
+      data[f.id] = el.value.trim();
+      if (f.required && !data[f.id]) valid = false;
+    }
+  });
+
+  if (!valid) { showToast('⚠️ נא למלא את כל השדות המסומנים'); return; }
+
+  const type = config.fixedType || data.type;
+  const today = new Date();
+  const date = `${today.getDate()}.${today.getMonth()+1}.${today.getFullYear()}`;
+  const id = Date.now();
+
+  document.querySelector('#formContent .btn-primary').disabled = true;
+  document.querySelector('#formContent .btn-primary').textContent = '⏳ שולח...';
+
+  try {
+    await apiPost({ action: 'add', id, type, title: data.title, body: data.body, name: data.name, klass: data.klass || '', date, approved: 'false' });
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('successMsg').classList.add('show');
+    showToast('✅ נשלח בהצלחה!');
+  } catch(e) {
+    showToast('❌ שגיאה בשליחה, נסה שנית');
+    document.querySelector('#formContent .btn-primary').disabled = false;
+    document.querySelector('#formContent .btn-primary').textContent = '📤 שלח לאישור';
+  }
+}
+
+// ===== ADMIN =====
+function openAdmin() {
+  document.getElementById('adminOverlay').classList.add('open');
+}
+function closeAdmin() {
+  document.getElementById('adminOverlay').classList.remove('open');
+}
+
+function doAdminLogin() {
+  if (document.getElementById('adminPassInput').value === ADMIN_PASSWORD) {
+    adminLoggedIn = true;
+    document.getElementById('adminLoginSection').style.display = 'none';
+    document.getElementById('adminDashSection').style.display = 'block';
+    renderAdminLists();
+  } else {
+    document.getElementById('adminErr').classList.add('show');
+  }
+}
+
+function switchAdminTab(tab, btn) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('adminPendingList').style.display  = tab === 'pending'  ? 'block' : 'none';
+  document.getElementById('adminApprovedList').style.display = tab === 'approved' ? 'block' : 'none';
+}
+
+function renderAdminLists() {
+  const pending  = allItems.filter(i => !i.approved);
+  const approved = allItems.filter(i => i.approved);
+
+  document.getElementById('cntPending').textContent  = pending.length;
+  document.getElementById('cntApproved').textContent = approved.length;
+  document.getElementById('cntTotal').textContent    = allItems.length;
+
+  document.getElementById('adminPendingList').innerHTML = pending.length === 0
+    ? '<p style="color:var(--gray-500);font-size:.875rem;padding:20px 0">אין פריטים ממתינים 🎉</p>'
+    : pending.map(i => adminCard(i, true)).join('');
+
+  document.getElementById('adminApprovedList').innerHTML = approved.length === 0
+    ? '<p style="color:var(--gray-500);font-size:.875rem;padding:20px 0">אין פריטים מאושרים עדיין.</p>'
+    : approved.map(i => adminCard(i, false)).join('');
+}
+
+function adminCard(item, showApprove) {
+  const tl = TYPE_LABELS[item.type] || { label: item.type, chip: 'chip-blue' };
+  return `
+    <div class="admin-card">
+      <div class="admin-card-top">
+        <div>
+          <div class="admin-card-title">${esc(item.title)}</div>
+          <div class="admin-card-meta">${esc(item.name||'')}${item.klass?' · '+esc(item.klass):''} · ${item.date||''}</div>
+        </div>
+        <span class="card-chip ${tl.chip}" style="font-size:.72rem;padding:3px 10px;border-radius:12px">${tl.label}</span>
+      </div>
+      <div class="admin-card-body">${esc(item.body)}</div>
+      <div class="admin-actions">
+        ${showApprove ? `<button class="btn-approve" onclick="approveItem('${item.id}')">✅ אשר ופרסם</button>` : ''}
+        <button class="btn-reject" onclick="deleteItem('${item.id}')">${showApprove ? '🗑️ דחה' : '🗑️ הסר'}</button>
+      </div>
+    </div>`;
+}
+
+async function approveItem(id) {
+  try {
+    await apiPost({ action: 'approve', id });
+    showToast('✅ פורסם בהצלחה!');
+  } catch(e) { showToast('❌ שגיאה, נסה שנית'); }
+}
+
+async function deleteItem(id) {
+  try {
+    await apiPost({ action: 'delete', id });
+    showToast('🗑️ הוסר');
+  } catch(e) { showToast('❌ שגיאה, נסה שנית'); }
+}
+
+// ===== INIT =====
+loadItems();
+setInterval(loadItems, 60000);
+</script>
+</body>
+</html>
