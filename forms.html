@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<title>טפסים — מיתר גני תקווה</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Hebrew:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary-container": "#1a73e8", "primary": "#005bbf",
+        "surface-container-highest": "#e1e3e4", "secondary": "#006e2c",
+        "surface-container": "#edeeef", "background": "#f8f9fa",
+        "on-error-container": "#93000a", "on-secondary-container": "#00722f",
+        "tertiary": "#9a24ae", "on-error": "#ffffff", "surface-dim": "#d9dadb",
+        "secondary-fixed": "#89fa9b", "surface-container-lowest": "#ffffff",
+        "outline": "#727785", "surface-tint": "#005bc0",
+        "on-primary": "#ffffff", "on-surface": "#191c1d",
+        "surface-container-high": "#e7e8e9", "tertiary-container": "#b743c9",
+        "outline-variant": "#c1c6d6", "surface": "#f8f9fa",
+        "on-tertiary-container": "#ffffff", "surface-variant": "#e1e3e4",
+        "inverse-primary": "#adc7ff", "inverse-on-surface": "#f0f1f2",
+        "error-container": "#ffdad6", "tertiary-fixed": "#ffd6fe",
+        "on-primary-container": "#ffffff", "error": "#ba1a1a",
+        "on-surface-variant": "#414754", "inverse-surface": "#2e3132",
+        "on-primary-fixed": "#001a41", "on-secondary": "#ffffff",
+        "on-background": "#191c1d", "on-tertiary": "#ffffff",
+        "primary-fixed-dim": "#adc7ff", "secondary-fixed-dim": "#6ddd81",
+        "surface-container-low": "#f3f4f5", "surface-bright": "#f8f9fa",
+        "primary-fixed": "#d8e2ff", "secondary-container": "#86f898",
+        "on-primary-fixed-variant": "#004493", "on-secondary-fixed": "#002108",
+        "on-secondary-fixed-variant": "#005320", "tertiary-fixed-dim": "#f9abff",
+        "on-tertiary-fixed": "#35003f", "on-tertiary-fixed-variant": "#7b008f"
+      },
+      fontFamily: {
+        "headline": ["Be Vietnam Pro", "Noto Sans Hebrew"],
+        "body": ["Inter", "Noto Sans Hebrew"],
+        "label": ["Inter", "Noto Sans Hebrew"]
+      },
+      borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  body { font-family: 'Noto Sans Hebrew', sans-serif; background: #f8f9fa; min-height: 100dvh; }
+  h1, h2, h3, .font-headline { font-family: 'Be Vietnam Pro', 'Noto Sans Hebrew', sans-serif; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Nav mount point -->
+<div id="nav-root"></div>
+
+<!-- Page Content -->
+<main class="pt-16 pb-32">
+<main class="max-w-5xl mx-auto px-6 pt-12">
+<!-- Hero Section -->
+<section class="mb-12">
+<h1 class="text-[3.5rem] font-bold text-on-background leading-tight mb-4 tracking-tighter">Engagement Forms</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                ברוכים הבאים למרכז הטפסים של מייטר. כאן תוכלו לדווח על פעילות, להציע יוזמות חדשות ולשתף אותנו במשוב שלכם כדי לשפר את הקהילה שלנו.
+            </p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Card 1: Volunteer Activity Report -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between min-h-[320px] transition-all duration-300 hover:translate-y-[-4px]">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-container"></div>
+<div>
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="description">description</span>
+</div>
+<h2 class="text-2xl font-semibold mb-3">Volunteer Activity Report</h2>
+<p class="text-on-surface-variant text-base leading-relaxed max-w-md">
+                        סיימתם התנדבות? זה הזמן לעדכן אותנו! דווחו על שעות הפעילות, המיקום וההישגים שלכם כדי שנוכל לתעד את ההשפעה שלכם.
+                    </p>
+</div>
+<div class="mt-8 flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary-fixed/30 px-3 py-1 rounded-full">Report</span>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-blue-500/20 active:scale-95 transition-all">
+                        Fill Now
+                    </button>
+</div>
+</div>
+<!-- Card 2: Social Initiative Proposal -->
+<div class="md:col-span-4 bg-surface-container-low rounded-xl p-8 flex flex-col transition-all duration-300 hover:bg-surface-container-high">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="lightbulb">lightbulb</span>
+</div>
+<h2 class="text-xl font-bold mb-4">Social Initiative Proposal</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-auto">
+                    יש לכם רעיון לשינוי חברתי? אנחנו כאן כדי להקשיב ולעזור לכם להפוך חזון למציאות.
+                </p>
+<button class="mt-8 flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+                    Fill Now
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3: Volunteer Activity Feedback -->
+<div class="md:col-span-4 bg-tertiary-fixed rounded-xl p-8 flex flex-col transition-all duration-300 hover:brightness-95">
+<div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="star">star</span>
+</div>
+<h2 class="text-xl font-bold mb-4">Volunteer Activity Feedback</h2>
+<p class="text-on-tertiary-fixed-variant text-sm leading-relaxed mb-auto">
+                    איך הייתה החוויה שלכם? שתפו אותנו בתחושות שלכם כדי שנוכל להמשיך ולהשתפר עבורכם.
+                </p>
+<button class="mt-8 bg-tertiary text-white w-full py-3 rounded-full font-bold active:scale-95 transition-all">
+                    Fill Now
+                </button>
+</div>
+<!-- Informational/Stat Card (Additional Content for visual balance) -->
+<div class="md:col-span-8 bg-inverse-surface text-inverse-on-surface rounded-xl p-8 flex items-center gap-8 overflow-hidden relative">
+<div class="relative z-10 flex-1">
+<h3 class="text-2xl font-bold mb-2">Why Report?</h3>
+<p class="text-surface-variant text-sm opacity-80 leading-relaxed">
+                        הדיווחים שלכם עוזרים לנו למדוד את האימפקט החברתי של הקהילה ולגייס משאבים נוספים להרחבת הפעילות.
+                    </p>
+<div class="flex gap-4 mt-6">
+<div class="text-center">
+<div class="text-2xl font-bold text-secondary-fixed">1.2K</div>
+<div class="text-[10px] uppercase opacity-60">Hours Reported</div>
+</div>
+<div class="w-px h-8 bg-white/20"></div>
+<div class="text-center">
+<div class="text-2xl font-bold text-tertiary-fixed">45</div>
+<div class="text-[10px] uppercase opacity-60">Active Initiatives</div>
+</div>
+</div>
+</div>
+<div class="hidden md:block w-1/3 aspect-square bg-white/5 rounded-full absolute -right-16 -bottom-16 blur-3xl"></div>
+<div class="relative z-10 w-32 h-32 flex-shrink-0">
+<img alt="Engagement" class="w-full h-full object-cover rounded-2xl grayscale" data-alt="Dynamic group of diverse people putting their hands together in a circle, top-down perspective, vibrant and energetic mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj13DA5ZyVbo9m1mbfFXJPVyOHNlD8CaqI9dbX5RbzEz1dqmq6l4hRMByOZ7agHfk75jzxPtkL-o6WL7FNlZJt1p6x0WDEp2DYtQLnyvYrYyrcIYzz7qE7iShjfpzSwokbPXoOpN3cePpZlDfq9Zc56lgM-PMJS9rjD87tCjDqfcbLZPxJKS2NcUgS1G0_nZm7Qm517ztS3AZuIEeNgQkJmG0rhqoP4MLI7U_S9Z0fNjg_8R-zFfhUoTeFWdsVPL9HTjTlMAXrWbM"/>
+</div>
+</div>
+</div>
+<!-- Secondary Section -->
+<section class="mt-16 mb-24">
+<h3 class="text-xl font-bold mb-6 border-r-4 border-primary pr-4">Recent History</h3>
+<div class="space-y-4">
+<!-- List Items (No-divider rule: spacing-6 used) -->
+<div class="flex items-center justify-between p-6 bg-surface-container-lowest rounded-2xl hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500" data-icon="history">history</span>
+</div>
+<div>
+<div class="font-bold">Weekly Activity Report #23</div>
+<div class="text-xs text-on-surface-variant">Submitted on Oct 12, 2023</div>
+</div>
+</div>
+<div class="text-secondary font-bold text-sm">Approved</div>
+</div>
+<div class="flex items-center justify-between p-6 bg-surface-container-low rounded-2xl hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500" data-icon="history">history</span>
+</div>
+<div>
+<div class="font-bold">Social Project Suggestion: Urban Garden</div>
+<div class="text-xs text-on-surface-variant">Submitted on Oct 05, 2023</div>
+</div>
+</div>
+<div class="text-primary font-bold text-sm">Under Review</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Desktop Navigation (Alternative visualization for wider screens) -->
+<div class="hidden md:flex fixed right-0 top-16 h-[calc(100vh-64px)] w-20 flex-col items-center py-8 gap-8 border-r border-slate-100 bg-white">
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center text-slate-400 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</button>
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center bg-primary-fixed text-primary shadow-sm">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</button>
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center text-slate-400 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="local_activity">local_activity</span>
+</button>
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center text-slate-400 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-md z-40 transition-opacity"></div>
+<!-- Modal Canvas -->
+<div class="relative z-50 w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[795px]">
+<!-- Modal Header -->
+<div class="flex items-center justify-between px-8 py-6 bg-surface-container-low/50">
+<button aria-label="Close" class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h1 class="text-2xl font-headline font-bold text-on-surface tracking-tight">דיווח פעילות התנדבות</h1>
+<div class="w-10"></div> <!-- Spacer for centering title -->
+</div>
+<!-- Scrollable Content Section -->
+<div class="flex-1 overflow-y-auto px-8 py-10 space-y-8">
+<!-- Welcome/Info Area (Asymmetric Layout Hint) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+<div class="md:col-span-8">
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                        אנא מלאו את פרטי ההתנדבות שביצעתם. הדיווח יועבר לרכז המעורבות החברתית לאישור סופי.
+                    </p>
+</div>
+<div class="md:col-span-4 flex justify-end">
+<div class="bg-primary-fixed/30 p-4 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-weight="fill">volunteer_activism</span>
+<div class="text-xs font-label uppercase tracking-widest text-on-primary-fixed-variant">פעילות חדשה</div>
+</div>
+</div>
+</div>
+<!-- Form Fields -->
+<form class="space-y-6">
+<!-- Organization Name Field -->
+<div class="group">
+<label class="block text-sm font-label font-bold text-on-surface-variant mb-2 mr-1">שם הארגון / פעילות</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border-none rounded-lg px-5 py-4 text-on-surface focus:ring-2 focus:ring-primary/20 transition-all outline-none placeholder:text-outline/60" placeholder="לדוגמה: עמותת 'לב אל לב'" type="text"/>
+</div>
+</div>
+<!-- Dual Column: Name & Class -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="group">
+<label class="block text-sm font-label font-bold text-on-surface-variant mb-2 mr-1">שם מלא</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg px-5 py-4 text-on-surface focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="ישראל ישראלי" type="text"/>
+</div>
+<div class="group">
+<label class="block text-sm font-label font-bold text-on-surface-variant mb-2 mr-1">כיתה</label>
+<select class="w-full bg-surface-container-high border-none rounded-lg px-5 py-4 text-on-surface focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none">
+<option value="">בחר כיתה...</option>
+<option value="y1">י' 1</option>
+<option value="y2">י' 2</option>
+<option value="ya1">יא' 1</option>
+<option value="ya2">יא' 2</option>
+<option value="yb1">יב' 1</option>
+</select>
+</div>
+</div>
+<!-- Activity Description Textarea -->
+<div class="group">
+<label class="block text-sm font-label font-bold text-on-surface-variant mb-2 mr-1">תיאור הפעילות</label>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg px-5 py-4 text-on-surface focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none" placeholder="פרטו בקצרה מה עשיתם במהלך ההתנדבות..." rows="4"></textarea>
+</div>
+<!-- Decorative Glassmorphism Info Card -->
+<div class="bg-surface-container-low p-6 rounded-lg flex items-start gap-4 border border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary-container mt-1">info</span>
+<div class="space-y-1">
+<h4 class="font-bold text-sm text-on-surface">שימו לב</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                            ניתן לצרף אישור חתום בפורמט PDF או JPG לאחר שליחת הטופס במסך ניהול הפעילויות.
+                        </p>
+</div>
+</div>
+</form>
+</div>
+<!-- Modal Footer / Action Bar -->
+<div class="px-8 py-8 bg-surface-container-lowest flex flex-row-reverse items-center gap-4">
+<button class="flex-1 md:flex-none md:min-w-[160px] bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                שלח לאישור
+            </button>
+<button class="flex-1 md:flex-none md:min-w-[120px] bg-surface-container-high text-on-surface font-semibold py-4 px-8 rounded-full hover:bg-surface-container-highest transition-colors">
+                ביטול
+            </button>
+</div>
+</div>
+<!-- Hidden Nav Shell (Suppressed based on "The Destination Rule" for Focused Journeys) -->
+<!-- The user is in a focused modal flow, so the BottomNavBar and TopAppBar are suppressed to prioritize the form canvas. -->
+</main>
+
+
+<!-- Footer -->
+<footer class="w-full mt-auto bg-[#f3f4f5]">
+  <div class="flex flex-col md:flex-row-reverse items-center justify-between p-8 gap-4 w-full max-w-screen-2xl mx-auto">
+    <div class="flex items-center gap-2">
+      <span class="font-bold text-lg font-headline text-[#1a73e8]">מיתר גני תקווה</span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a class="text-slate-500 hover:text-[#1a73e8] transition-all text-sm" href="#">תקנון</a>
+      <a class="text-slate-500 hover:text-[#1a73e8] transition-all text-sm" href="#">צור קשר</a>
+      <a class="text-slate-500 hover:text-[#1a73e8] transition-all text-sm" href="#">אודות</a>
+    </div>
+    <div class="text-slate-500 text-sm">© כל הזכויות שמורות למיתר גני תקווה</div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  // Initialize nav for this page
+  document.addEventListener('DOMContentLoaded', () => buildNav('forms'));
+  
+</script>
+</body>
+</html>
