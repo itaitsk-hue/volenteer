@@ -1,0 +1,54 @@
+<!-- shared_head.html — copy this <head> block into every page -->
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Hebrew:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary-container": "#1a73e8", "primary": "#005bbf",
+        "surface-container-highest": "#e1e3e4", "secondary": "#006e2c",
+        "surface-container": "#edeeef", "background": "#f8f9fa",
+        "on-error-container": "#93000a", "on-secondary-container": "#00722f",
+        "tertiary": "#9a24ae", "on-error": "#ffffff", "surface-dim": "#d9dadb",
+        "secondary-fixed": "#89fa9b", "surface-container-lowest": "#ffffff",
+        "outline": "#727785", "surface-tint": "#005bc0",
+        "on-primary": "#ffffff", "on-surface": "#191c1d",
+        "surface-container-high": "#e7e8e9", "tertiary-container": "#b743c9",
+        "outline-variant": "#c1c6d6", "surface": "#f8f9fa",
+        "on-tertiary-container": "#ffffff", "surface-variant": "#e1e3e4",
+        "inverse-primary": "#adc7ff", "inverse-on-surface": "#f0f1f2",
+        "error-container": "#ffdad6", "tertiary-fixed": "#ffd6fe",
+        "on-primary-container": "#ffffff", "error": "#ba1a1a",
+        "on-surface-variant": "#414754", "inverse-surface": "#2e3132",
+        "on-primary-fixed": "#001a41", "on-secondary": "#ffffff",
+        "on-background": "#191c1d", "on-tertiary": "#ffffff",
+        "primary-fixed-dim": "#adc7ff", "secondary-fixed-dim": "#6ddd81",
+        "surface-container-low": "#f3f4f5", "surface-bright": "#f8f9fa",
+        "primary-fixed": "#d8e2ff", "secondary-container": "#86f898",
+        "on-primary-fixed-variant": "#004493", "on-secondary-fixed": "#002108",
+        "on-secondary-fixed-variant": "#005320", "tertiary-fixed-dim": "#f9abff",
+        "on-tertiary-fixed": "#35003f", "on-tertiary-fixed-variant": "#7b008f"
+      },
+      fontFamily: {
+        "headline": ["Be Vietnam Pro", "Noto Sans Hebrew"],
+        "body": ["Inter", "Noto Sans Hebrew"],
+        "label": ["Inter", "Noto Sans Hebrew"]
+      },
+      borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  body { font-family: 'Noto Sans Hebrew', sans-serif; background: #f8f9fa; }
+  h1, h2, h3, .font-headline { font-family: 'Be Vietnam Pro', 'Noto Sans Hebrew', sans-serif; }
+</style>

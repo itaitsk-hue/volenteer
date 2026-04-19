@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<title>Super-User — מיתר גני תקווה</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Hebrew:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary-container": "#1a73e8", "primary": "#005bbf",
+        "surface-container-highest": "#e1e3e4", "secondary": "#006e2c",
+        "surface-container": "#edeeef", "background": "#f8f9fa",
+        "on-error-container": "#93000a", "on-secondary-container": "#00722f",
+        "tertiary": "#9a24ae", "on-error": "#ffffff", "surface-dim": "#d9dadb",
+        "secondary-fixed": "#89fa9b", "surface-container-lowest": "#ffffff",
+        "outline": "#727785", "surface-tint": "#005bc0",
+        "on-primary": "#ffffff", "on-surface": "#191c1d",
+        "surface-container-high": "#e7e8e9", "tertiary-container": "#b743c9",
+        "outline-variant": "#c1c6d6", "surface": "#f8f9fa",
+        "on-tertiary-container": "#ffffff", "surface-variant": "#e1e3e4",
+        "inverse-primary": "#adc7ff", "inverse-on-surface": "#f0f1f2",
+        "error-container": "#ffdad6", "tertiary-fixed": "#ffd6fe",
+        "on-primary-container": "#ffffff", "error": "#ba1a1a",
+        "on-surface-variant": "#414754", "inverse-surface": "#2e3132",
+        "on-primary-fixed": "#001a41", "on-secondary": "#ffffff",
+        "on-background": "#191c1d", "on-tertiary": "#ffffff",
+        "primary-fixed-dim": "#adc7ff", "secondary-fixed-dim": "#6ddd81",
+        "surface-container-low": "#f3f4f5", "surface-bright": "#f8f9fa",
+        "primary-fixed": "#d8e2ff", "secondary-container": "#86f898",
+        "on-primary-fixed-variant": "#004493", "on-secondary-fixed": "#002108",
+        "on-secondary-fixed-variant": "#005320", "tertiary-fixed-dim": "#f9abff",
+        "on-tertiary-fixed": "#35003f", "on-tertiary-fixed-variant": "#7b008f"
+      },
+      fontFamily: {
+        "headline": ["Be Vietnam Pro", "Noto Sans Hebrew"],
+        "body": ["Inter", "Noto Sans Hebrew"],
+        "label": ["Inter", "Noto Sans Hebrew"]
+      },
+      borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  body { font-family: 'Noto Sans Hebrew', sans-serif; background: #f8f9fa; min-height: 100dvh; }
+  h1, h2, h3, .font-headline { font-family: 'Be Vietnam Pro', 'Noto Sans Hebrew', sans-serif; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Nav mount point -->
+<div id="nav-root"></div>
+
+<!-- Page Content -->
+<main class="pt-16 pb-32">
+<main class="pt-24 px-4 md:px-8 max-w-7xl mx-auto space-y-8">
+<!-- Dashboard Hero Stats (Asymmetric Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-sm flex flex-col justify-between min-h-[240px] relative overflow-hidden group">
+<div class="relative z-10">
+<h1 class="font-headline text-3xl font-bold mb-2">שלום, מנהל מערכת</h1>
+<p class="text-on-surface-variant max-w-md">ברוך הבא למרכז השליטה של Meyter. כאן תוכל לנהל הרשאות, לעקוב אחר שינויים ולעצב את מבנה התוכן של הפלטפורמה.</p>
+</div>
+<div class="flex gap-4 mt-6 relative z-10">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                        הוספת מנהל חדש
+                    </button>
+<button class="bg-surface-container-highest text-on-surface px-6 py-3 rounded-full font-bold hover:bg-surface-variant transition-all">
+                        דוח פעילות חודשי
+                    </button>
+</div>
+<div class="absolute -bottom-10 -left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+</div>
+<div class="md:col-span-4 bg-primary text-on-primary p-8 rounded-xl flex flex-col justify-center items-center text-center shadow-lg bg-gradient-to-br from-primary to-blue-700">
+<span class="material-symbols-outlined text-5xl mb-4" data-icon="shield_person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+<span class="text-5xl font-extrabold mb-1">12</span>
+<span class="text-sm font-label tracking-widest opacity-80 uppercase">מנהלים פעילים</span>
+</div>
+</section>
+<!-- Tabs Navigation Placeholder (Visual representation for desktop) -->
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide md:hidden">
+<button class="bg-blue-100 text-blue-800 px-5 py-2 rounded-full whitespace-nowrap font-bold text-sm">ניהול</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full whitespace-nowrap font-bold text-sm">לוג שינויים</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full whitespace-nowrap font-bold text-sm">תוכן</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full whitespace-nowrap font-bold text-sm">דפים</button>
+</div>
+<!-- Section 1: Admins Management -->
+<div class="bg-surface-container-low rounded-xl p-1 overflow-hidden">
+<div class="bg-surface-container-lowest p-6 rounded-lg">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-xl font-headline font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+                        מנהלי מערכת
+                    </h2>
+</div>
+<div class="space-y-4">
+<!-- Admin Row -->
+<div class="flex items-center justify-between p-4 bg-surface rounded-xl hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<div class="font-bold text-on-surface">איתי לוין</div>
+<div class="text-xs text-on-surface-variant">itai.levin@meyter.org.il</div>
+</div>
+</div>
+<button class="p-2 text-error hover:bg-error-container/30 rounded-full transition-colors active:scale-90" title="הסר מנהל">
+<span class="material-symbols-outlined" data-icon="person_remove">person_remove</span>
+</button>
+</div>
+<!-- Admin Row -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low/50 rounded-xl hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<div class="font-bold text-on-surface">דנה כהן</div>
+<div class="text-xs text-on-surface-variant">dana.c@meyter.org.il</div>
+</div>
+</div>
+<button class="p-2 text-error hover:bg-error-container/30 rounded-full transition-colors active:scale-90" title="הסר מנהל">
+<span class="material-symbols-outlined" data-icon="person_remove">person_remove</span>
+</button>
+</div>
+<!-- Admin Row -->
+<div class="flex items-center justify-between p-4 bg-surface rounded-xl hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<div class="font-bold text-on-surface">יוסי מזרחי</div>
+<div class="text-xs text-on-surface-variant">yossi.m@meyter.org.il</div>
+</div>
+</div>
+<button class="p-2 text-error hover:bg-error-container/30 rounded-full transition-colors active:scale-90" title="הסר מנהל">
+<span class="material-symbols-outlined" data-icon="person_remove">person_remove</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Audit Log (Table Focus) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 overflow-hidden">
+<div class="p-6 border-b border-surface-container-high flex flex-col md:flex-row md:items-center justify-between gap-4">
+<h2 class="text-xl font-headline font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="history">history</span>
+                    לוג שינויים
+                </h2>
+<div class="flex flex-wrap gap-2">
+<select class="bg-surface-container-low border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20">
+<option>כל התאריכים</option>
+<option>היום</option>
+<option>השבוע</option>
+</select>
+<select class="bg-surface-container-low border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20">
+<option>כל המנהלים</option>
+<option>איתי לוין</option>
+<option>דנה כהן</option>
+</select>
+<button class="bg-surface-container-high p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead class="bg-surface-container-low text-on-surface-variant text-xs font-label uppercase tracking-widest">
+<tr>
+<th class="px-6 py-4 font-bold">זמן</th>
+<th class="px-6 py-4 font-bold">מבצע</th>
+<th class="px-6 py-4 font-bold">פעולה</th>
+<th class="px-6 py-4 font-bold">פריט</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="border-b border-surface-container-low hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 text-on-surface-variant">14:20 22/05/24</td>
+<td class="px-6 py-4 font-medium">איתי לוין</td>
+<td class="px-6 py-4"><span class="bg-secondary-container/30 text-secondary font-bold px-2 py-1 rounded text-xs">עדכון תוכן</span></td>
+<td class="px-6 py-4">פוסט התנדבות בגינה</td>
+</tr>
+<tr class="border-b border-surface-container-low hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 text-on-surface-variant">12:05 22/05/24</td>
+<td class="px-6 py-4 font-medium">דנה כהן</td>
+<td class="px-6 py-4"><span class="bg-error-container text-error font-bold px-2 py-1 rounded text-xs">מחיקת דף</span></td>
+<td class="px-6 py-4">ארכיון אירועים 2022</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 text-on-surface-variant">09:45 22/05/24</td>
+<td class="px-6 py-4 font-medium">מערכת</td>
+<td class="px-6 py-4"><span class="bg-primary-container/20 text-primary font-bold px-2 py-1 rounded text-xs">גיבוי אוטומטי</span></td>
+<td class="px-6 py-4">בסיס נתונים ראשי</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section 3: Content Types (Bento Grid Style) -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-headline font-bold">סוגי תוכן</h2>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+                    סוג תוכן חדש
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Content Type Card -->
+<div class="bg-surface-container-low p-6 rounded-xl relative group overflow-hidden border border-transparent hover:border-primary/20 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="volunteer_activism" data-weight="fill" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+</div>
+<div class="flex gap-1">
+<button class="p-2 hover:bg-white rounded-full transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-white rounded-full transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-sm" data-icon="visibility_off">visibility_off</span></button>
+</div>
+</div>
+<div class="font-headline font-bold text-lg">התנדבויות</div>
+<div class="text-xs font-label text-on-surface-variant mt-1 opacity-70">ID: VOL_TYPE_01</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="h-2 flex-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+<span class="text-[10px] font-bold">67% בשימוש</span>
+</div>
+</div>
+<!-- Content Type Card -->
+<div class="bg-surface-container-low p-6 rounded-xl relative group overflow-hidden border border-transparent hover:border-secondary/20 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="event" data-weight="fill" style="font-variation-settings: 'FILL' 1;">event</span>
+</div>
+<div class="flex gap-1">
+<button class="p-2 hover:bg-white rounded-full transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-white rounded-full transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span></button>
+</div>
+</div>
+<div class="font-headline font-bold text-lg">אירועים קהילתיים</div>
+<div class="text-xs font-label text-on-surface-variant mt-1 opacity-70">ID: EVT_TYPE_04</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="h-2 flex-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/4"></div>
+</div>
+<span class="text-[10px] font-bold">24% בשימוש</span>
+</div>
+</div>
+<!-- Content Type Card -->
+<div class="bg-surface-container-low p-6 rounded-xl relative group overflow-hidden border border-transparent hover:border-tertiary/20 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="campaign" data-weight="fill" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<div class="flex gap-1">
+<button class="p-2 hover:bg-white rounded-full transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-white rounded-full transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span></button>
+</div>
+</div>
+<div class="font-headline font-bold text-lg">הודעות מערכת</div>
+<div class="text-xs font-label text-on-surface-variant mt-1 opacity-70">ID: MSG_TYPE_02</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="h-2 flex-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-full"></div>
+</div>
+<span class="text-[10px] font-bold">100% בשימוש</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Pages Reordering -->
+<div class="bg-surface-container-lowest p-8 rounded-xl space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-xl font-headline font-bold">ניהול דפים</h2>
+<p class="text-sm text-on-surface-variant">גרור ושחרר כדי לשנות את סדר ההופעה בתפריט הניווט</p>
+</div>
+<button class="bg-surface-container-highest text-on-surface px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                    דף חדש
+                </button>
+</div>
+<div class="space-y-2">
+<!-- Page Item -->
+<div class="flex items-center gap-4 p-4 bg-surface rounded-lg border-r-4 border-primary shadow-sm cursor-grab active:cursor-grabbing">
+<span class="material-symbols-outlined text-outline-variant" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-primary" data-icon="home">home</span>
+<div class="flex-1">
+<div class="font-bold">דף הבית</div>
+<div class="text-xs text-on-surface-variant font-mono">/home</div>
+</div>
+<div class="text-xs font-bold text-outline uppercase tracking-tighter">סדר: 1</div>
+</div>
+<!-- Page Item -->
+<div class="flex items-center gap-4 p-4 bg-surface rounded-lg border-r-4 border-secondary/40 shadow-sm cursor-grab">
+<span class="material-symbols-outlined text-outline-variant" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-secondary" data-icon="explore">explore</span>
+<div class="flex-1">
+<div class="font-bold">גילוי התנדבויות</div>
+<div class="text-xs text-on-surface-variant font-mono">/explore</div>
+</div>
+<div class="text-xs font-bold text-outline uppercase tracking-tighter">סדר: 2</div>
+</div>
+<!-- Page Item -->
+<div class="flex items-center gap-4 p-4 bg-surface rounded-lg border-r-4 border-tertiary/40 shadow-sm cursor-grab">
+<span class="material-symbols-outlined text-outline-variant" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-tertiary" data-icon="person">person</span>
+<div class="flex-1">
+<div class="font-bold">פרופיל אישי</div>
+<div class="text-xs text-on-surface-variant font-mono">/profile</div>
+</div>
+<div class="text-xs font-bold text-outline uppercase tracking-tighter">סדר: 3</div>
+</div>
+</div>
+</div>
+</main>
+
+<!-- FAB (Contextual for Home/Admin main) -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 bg-gradient-to-br from-primary to-primary-container text-on-primary w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</main>
+
+
+
+<script src="nav.js"></script>
+<script>
+  // Initialize nav for this page
+  document.addEventListener('DOMContentLoaded', () => buildNav('super'));
+  
+      if(sessionStorage.getItem('superAuth') !== 'true') {
+        window.location.href = 'index.html';
+      }
+    
+</script>
+</body>
+</html>
